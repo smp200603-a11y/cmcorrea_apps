@@ -78,11 +78,15 @@ st.markdown(f'<a class="btn" href="{url_ia}" target="_blank">Explorar contenido<
 
 st.write("")
 
-# ---------- FUNCIÓN TARJETA ----------
+# ---------- FUNCIÓN TARJETA (IMÁGENES IGUALES) ----------
 def card(titulo, img, desc, url):
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.markdown(f"**{titulo}**")
-    st.image(Image.open(img), use_column_width=True)
+
+    image = Image.open(img)
+    image = image.resize((300, 200))  # 👈 TODAS IGUALES
+    st.image(image)
+
     st.write(desc)
     st.markdown(f'<a class="btn" href="{url}" target="_blank">Ver aplicación</a>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)

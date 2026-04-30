@@ -1,123 +1,127 @@
 import streamlit as st
 from PIL import Image
 
-# Configuración de la página
+# Configuración
 st.set_page_config(
     page_title="Portafolio Salomé Marín Pérez",
     page_icon="💜",
     layout="wide"
 )
 
-# Estilos personalizados (rosado y morado)
+# Fondo y estilos reales visibles
 st.markdown("""
-    <style>
-    .stApp {
-        background: linear-gradient(135deg, #f8bbd0, #e1bee7);
-    }
-    h1 {
-        color: #6a1b9a;
-        text-align: center;
-    }
-    h2, h3 {
-        color: #8e24aa;
-    }
-    .stSidebar {
-        background-color: #f3e5f5;
-    }
-    </style>
+<style>
+.stApp {
+    background-color: #fce4ec;
+}
+
+.card {
+    background-color: #f3e5f5;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #6a1b9a;
+    text-align: center;
+}
+
+h3 {
+    color: #8e24aa;
+}
+</style>
 """, unsafe_allow_html=True)
 
-# Título principal
+# Título
 st.title("💜 Portafolio Salomé Marín Pérez")
 
 # Sidebar
 with st.sidebar:
-    st.subheader("Aplicaciones con Inteligencia Artificial")
-    parrafo = (
-        "La inteligencia artificial permite mejorar la toma de decisiones con el uso de datos, "
-        "automatizar tareas rutinarias y proporcionar análisis avanzados en tiempo real, lo que "
-        "resulta en una mayor eficiencia y precisión en diversos campos."
+    st.subheader("Aplicaciones con IA")
+    st.write(
+        "La inteligencia artificial permite mejorar la toma de decisiones, "
+        "automatizar tareas y analizar datos en tiempo real."
     )
-    st.write(parrafo)
 
 # Link general
 url_ia = "https://sites.google.com/view/aplicacionesdeia/inicio"
-st.subheader("Explora ejercicios y aplicaciones")
-st.write(f"[Ir al contenido]({url_ia})")
+st.write(f"[Ir al contenido general]({url_ia})")
 
 # Columnas
 col1, col2, col3 = st.columns(3)
 
-# ----------- COLUMNA 1 -----------
+# -------- COLUMNA 1 --------
 with col1:
 
+    st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("🎤 Texto a Voz")
-    image = Image.open('txt_to_audio2.png')
-    st.image(image, width=190)
-    st.write("Aplicación de conversión de texto a audio.")
-    url = "https://imultimod.streamlit.app/"
-    st.write(f"[Ir a la app]({url})")
+    st.image(Image.open('txt_to_audio2.png'), width=190)
+    st.write("Convierte texto en audio.")
+    st.write("[Ir a la app](https://imultimod.streamlit.app/)")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("📦 Reconocimiento de Objetos")
-    image = Image.open('txt_to_audio.png')
-    st.image(image, width=200)
-    st.write("Detección de objetos en imágenes.")
-    url = "https://yolov5cmc.streamlit.app/"
-    st.write(f"[Ir a la app]({url})")
+    st.image(Image.open('txt_to_audio.png'), width=200)
+    st.write("Detecta objetos en imágenes.")
+    st.write("[Ir a la app](https://yolov5cmc.streamlit.app/)")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("🧠 Entrenamiento de Modelos")
-    image = Image.open('OIG5.jpg')
-    st.image(image, width=200)
+    st.image(Image.open('OIG5.jpg'), width=200)
     st.write("Uso de modelos entrenados.")
-    url = "https://xn3pg24ztuv6fdiqon8qn3.streamlit.app/"
-    st.write(f"[Ir a la app]({url})")
+    st.write("[Ir a la app](https://xn3pg24ztuv6fdiqon8qn3.streamlit.app/)")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 
-# ----------- COLUMNA 2 -----------
+# -------- COLUMNA 2 --------
 with col2:
 
+    st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("🗣️ Voz a Texto")
-    image = Image.open('OIG8.jpg')
-    st.image(image, width=200)
-    st.write("Conversión de voz a texto.")
-    url = "https://traductorw.streamlit.app/"
-    st.write(f"[Ir a la app]({url})")
+    st.image(Image.open('OIG8.jpg'), width=200)
+    st.write("Convierte voz en texto.")
+    st.write("[Ir a la app](https://traductorw.streamlit.app/)")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("📊 Análisis de Datos")
-    image = Image.open('data_analisis.png')
-    st.image(image, width=190)
-    st.write("Análisis de datos con IA.")
-    url = "https://dataagente.streamlit.app/"
-    st.write(f"[Ir a la app]({url})")
+    st.image(Image.open('data_analisis.png'), width=190)
+    st.write("Analiza datos con IA.")
+    st.write("[Ir a la app](https://dataagente.streamlit.app/)")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("🎧 Transcriptor")
-    image = Image.open('OIG3.jpg')
-    st.image(image, width=200)
-    st.write("Transcripción de audio y video.")
-    url = "https://transcript-whisper.streamlit.app/"
-    st.write(f"[Ir a la app]({url})")
+    st.image(Image.open('OIG3.jpg'), width=200)
+    st.write("Transcribe audio y video.")
+    st.write("[Ir a la app](https://transcript-whisper.streamlit.app/)")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 
-# ----------- COLUMNA 3 -----------
+# -------- COLUMNA 3 --------
 with col3:
 
-    st.subheader("📄 Chat con PDF (RAG)")
-    image = Image.open('Chat_pdf.png')
-    st.image(image, width=190)
-    st.write("Consulta documentos PDF con IA.")
-    url = "https://chatpdf-cc.streamlit.app/"
-    st.write(f"[Ir a la app]({url})")
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.subheader("📄 Chat con PDF")
+    st.image(Image.open('Chat_pdf.png'), width=190)
+    st.write("Consulta PDFs con IA.")
+    st.write("[Ir a la app](https://chatpdf-cc.streamlit.app/)")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("🖼️ Análisis de Imagen")
-    image = Image.open('OIG4.jpg')
-    st.image(image, width=200)
-    st.write("Análisis inteligente de imágenes.")
-    url = "https://vision2-gpt4o.streamlit.app/"
-    st.write(f"[Ir a la app]({url})")
+    st.image(Image.open('OIG4.jpg'), width=200)
+    st.write("Analiza imágenes.")
+    st.write("[Ir a la app](https://vision2-gpt4o.streamlit.app/)")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("🤖 Sistema Ciberfísico")
-    image = Image.open('OIG6.jpg')
-    st.image(image, width=200)
+    st.image(Image.open('OIG6.jpg'), width=200)
     st.write("Interacción con el mundo físico.")
-    url = "https://vision2-gpt4o.streamlit.app/"
-    st.write(f"[Ir a la app]({url})")
+    st.write("[Ir a la app](https://vision2-gpt4o.streamlit.app/)")
+    st.markdown('</div>', unsafe_allow_html=True)

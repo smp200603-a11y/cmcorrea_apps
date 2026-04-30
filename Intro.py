@@ -1,62 +1,83 @@
 import streamlit as st
 from PIL import Image
 
-# Configuración
 st.set_page_config(
     page_title="Portafolio Salomé Marín Pérez",
     page_icon="💜",
     layout="wide"
 )
 
-# Estilos mejorados
+# ESTILOS PRO
 st.markdown("""
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+html, body, [class*="css"]  {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Fondo degradado elegante */
 .stApp {
-    background: linear-gradient(135deg, #f8bbd0, #ce93d8);
+    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 50%, #e1bee7 100%);
 }
 
 /* Título */
 h1 {
-    color: #4a148c;
     text-align: center;
-    font-weight: bold;
+    color: #4a148c;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 /* Subtítulos */
 h3 {
     color: #6a1b9a;
+    font-weight: 500;
 }
 
-/* Texto normal */
+/* Texto */
 p {
-    color: #2c2c2c;
+    color: #333333;
+    font-size: 14px;
 }
 
 /* Sidebar */
 section[data-testid="stSidebar"] {
-    background-color: #f3e5f5;
+    background: linear-gradient(180deg, #f3e5f5, #ede7f6);
 }
 
-/* Tarjetas */
+/* Tarjetas modernas */
 .card {
-    background-color: white;
-    padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 25px;
     height: 100%;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: 0.3s;
 }
 
-/* Links */
-a {
-    color: #8e24aa;
-    font-weight: 500;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+/* Botones tipo link */
+.link-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-top: 8px;
+    background-color: #8e24aa;
+    color: white !important;
+    border-radius: 8px;
+    font-size: 13px;
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+.link-btn:hover {
+    background-color: #6a1b9a;
 }
 
 </style>
@@ -64,92 +85,63 @@ a:hover {
 
 # Título
 st.title("Portafolio Salomé Marín Pérez")
+st.write("")
 
 # Sidebar
 with st.sidebar:
     st.subheader("Aplicaciones con Inteligencia Artificial")
     st.write(
-        "La inteligencia artificial permite mejorar la toma de decisiones, "
-        "automatizar tareas y analizar datos en tiempo real."
+        "Este portafolio presenta diferentes aplicaciones desarrolladas "
+        "con inteligencia artificial en distintos contextos."
     )
 
 # Link general
 url_ia = "https://sites.google.com/view/aplicacionesdeia/inicio"
-st.write(f"[Explorar contenido]({url_ia})")
+st.markdown(f'<a class="link-btn" href="{url_ia}" target="_blank">Explorar contenido</a>', unsafe_allow_html=True)
+
+st.write("")
 
 # Columnas
 col1, col2, col3 = st.columns(3)
 
-# -------- COLUMNA 1 --------
+# FUNCION PARA TARJETAS (para que todo quede alineado)
+def card(titulo, img, desc, url):
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.subheader(titulo)
+    st.image(Image.open(img), use_column_width=True)
+    st.write(desc)
+    st.markdown(f'<a class="link-btn" href="{url}" target="_blank">Ver aplicación</a>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# COLUMNA 1
 with col1:
+    card("Conversión de texto a voz", "txt_to_audio2.png",
+         "Convierte texto en audio.", "https://imultimod.streamlit.app/")
 
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("Conversión de texto a voz")
-    st.image(Image.open('txt_to_audio2.png'), use_column_width=True)
-    st.write("Convierte texto en audio.")
-    st.write("[Ir a la aplicación](https://imultimod.streamlit.app/)")
-    st.markdown('</div>', unsafe_allow_html=True)
+    card("Reconocimiento de objetos", "txt_to_audio.png",
+         "Detecta objetos en imágenes.", "https://yolov5cmc.streamlit.app/")
 
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("Reconocimiento de objetos")
-    st.image(Image.open('txt_to_audio.png'), use_column_width=True)
-    st.write("Detecta objetos en imágenes.")
-    st.write("[Ir a la aplicación](https://yolov5cmc.streamlit.app/)")
-    st.markdown('</div>', unsafe_allow_html=True)
+    card("Entrenamiento de modelos", "OIG5.jpg",
+         "Uso de modelos entrenados.", "https://xn3pg24ztuv6fdiqon8qn3.streamlit.app/")
 
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("Entrenamiento de modelos")
-    st.image(Image.open('OIG5.jpg'), use_column_width=True)
-    st.write("Uso de modelos entrenados.")
-    st.write("[Ir a la aplicación](https://xn3pg24ztuv6fdiqon8qn3.streamlit.app/)")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-
-# -------- COLUMNA 2 --------
+# COLUMNA 2
 with col2:
+    card("Conversión de voz a texto", "OIG8.jpg",
+         "Convierte voz en texto.", "https://traductorw.streamlit.app/")
 
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("Conversión de voz a texto")
-    st.image(Image.open('OIG8.jpg'), use_column_width=True)
-    st.write("Convierte voz en texto.")
-    st.write("[Ir a la aplicación](https://traductorw.streamlit.app/)")
-    st.markdown('</div>', unsafe_allow_html=True)
+    card("Análisis de datos", "data_analisis.png",
+         "Análisis inteligente de datos.", "https://dataagente.streamlit.app/")
 
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("Análisis de datos")
-    st.image(Image.open('data_analisis.png'), use_column_width=True)
-    st.write("Analiza datos con inteligencia artificial.")
-    st.write("[Ir a la aplicación](https://dataagente.streamlit.app/)")
-    st.markdown('</div>', unsafe_allow_html=True)
+    card("Transcriptor", "OIG3.jpg",
+         "Transcribe audio y video.", "https://transcript-whisper.streamlit.app/")
 
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("Transcriptor de audio y video")
-    st.image(Image.open('OIG3.jpg'), use_column_width=True)
-    st.write("Transcribe contenido multimedia.")
-    st.write("[Ir a la aplicación](https://transcript-whisper.streamlit.app/)")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-
-# -------- COLUMNA 3 --------
+# COLUMNA 3
 with col3:
+    card("Generación en contexto (RAG)", "Chat_pdf.png",
+         "Consulta documentos PDF.", "https://chatpdf-cc.streamlit.app/")
 
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("Generación en contexto (RAG)")
-    st.image(Image.open('Chat_pdf.png'), use_column_width=True)
-    st.write("Consulta documentos PDF con IA.")
-    st.write("[Ir a la aplicación](https://chatpdf-cc.streamlit.app/)")
-    st.markdown('</div>', unsafe_allow_html=True)
+    card("Análisis de imagen", "OIG4.jpg",
+         "Procesamiento de imágenes.", "https://vision2-gpt4o.streamlit.app/")
 
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("Análisis de imagen")
-    st.image(Image.open('OIG4.jpg'), use_column_width=True)
-    st.write("Análisis inteligente de imágenes.")
-    st.write("[Ir a la aplicación](https://vision2-gpt4o.streamlit.app/)")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-    st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("Sistema ciberfísico")
-    st.image(Image.open('OIG6.jpg'), use_column_width=True)
-    st.write("Interacción con el mundo físico.")
-    st.write("[Ir a la aplicación](https://vision2-gpt4o.streamlit.app/)")
-    st.markdown('</div>', unsafe_allow_html=True)
+    card("Sistema ciberfísico", "OIG6.jpg",
+         "Interacción con el entorno físico.", "https://vision2-gpt4o.streamlit.app/")

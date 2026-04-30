@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+from PIL import Image, ImageOps
 
 st.set_page_config(
     page_title="Portafolio Salomé Marín Pérez",
@@ -78,13 +78,13 @@ st.markdown(f'<a class="btn" href="{url_ia}" target="_blank">Explorar contenido<
 
 st.write("")
 
-# ---------- FUNCIÓN TARJETA (IMÁGENES IGUALES) ----------
+# ---------- FUNCIÓN TARJETA (IMÁGENES PERFECTAS) ----------
 def card(titulo, img, desc, url):
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.markdown(f"**{titulo}**")
 
     image = Image.open(img)
-    image = image.resize((300, 200))  # 👈 TODAS IGUALES
+    image = ImageOps.fit(image, (350, 250), Image.Resampling.LANCZOS)  # 👈 uniforme sin deformar
     st.image(image)
 
     st.write(desc)

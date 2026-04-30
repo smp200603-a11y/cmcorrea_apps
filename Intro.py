@@ -6,7 +6,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------- ESTILO FINO ----------
+# ---------- ESTILO ----------
 st.markdown("""
 <style>
 
@@ -23,6 +23,7 @@ st.markdown("""
     margin-bottom: 5px;
 }
 
+/* Subtítulo */
 .subtitle {
     text-align: center;
     color: #7b5e8e;
@@ -64,7 +65,7 @@ st.markdown("""
 
 # ---------- HEADER ----------
 st.markdown('<div class="main-title">Portafolio Salomé Marín Pérez</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">Aplicaciones de Inteligencia Artificial</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Trabajos de este semestre</div>', unsafe_allow_html=True)
 
 # ---------- SIDEBAR ----------
 with st.sidebar:
@@ -77,7 +78,7 @@ st.markdown(f'<a class="btn" href="{url_ia}" target="_blank">Explorar contenido<
 
 st.write("")
 
-# ---------- FUNCION TARJETA ----------
+# ---------- FUNCIÓN TARJETA ----------
 def card(titulo, img, desc, url):
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.markdown(f"**{titulo}**")

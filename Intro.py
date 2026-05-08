@@ -52,8 +52,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------- HEADER ----------
-st.markdown('<div class="main-title">Portafolio Salomé Marín Pérez</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">Trabajos de este semestre</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">Portafolio Creación de Interfaces Multimodales</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Estudiante Salomé Marín Pérez</div>', unsafe_allow_html=True)
 
 # ---------- FUNCIÓN TARJETA ----------
 def card(titulo, img, url):

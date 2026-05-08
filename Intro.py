@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image, ImageOps
 
+
 st.set_page_config(
     page_title="Portafolio Salomé Marín Pérez",
     layout="wide"
